@@ -1,0 +1,51 @@
+schema_version: 1
+
+context:
+  version: "1.89.0"
+
+package:
+  name: ansicon
+  version: ${{ version }}
+
+source:
+  url: https://files.pythonhosted.org/packages/source/a/ansicon/ansicon-${{ version }}.tar.gz
+  sha256: e4d039def5768a47e4afec8e89e83ec3ae5a26bf00ad851f914d1240b444d2b1
+
+build:
+  number: 11
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - __win
+
+tests:
+  - python:
+      imports:
+        - ansicon
+      pip_check: true
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
+
+about:
+  homepage: https://github.com/Rockhopper-Technologies/ansicon
+  repository: https://github.com/Rockhopper-Technologies/ansicon
+  license: MPL-2.0
+  license_file: LICENSE
+  summary: Python wrapper for loading Jason Hood's ANSICON
+  description: |
+    ansicon loads Jason Hood's ANSICON into the current process, giving the
+    Windows console support for ANSI escape sequences. The 32 and 64 bit
+    DLLs are bundled, and the module exposes load and unload helpers plus a
+    check for whether ANSICON is already active.
+
+extra:
+  recipe-maintainers:
+    - holymonson
