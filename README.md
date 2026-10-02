@@ -3,18 +3,25 @@ About ansicon-feedstock
 
 Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/ansicon-feedstock/blob/main/LICENSE.txt)
 
-Home: https://pypi.org/project/ansicon/
+Home: https://github.com/Rockhopper-Technologies/ansicon
 
 Package license: MPL-2.0
 
 Summary: Python wrapper for loading Jason Hood's ANSICON
+
+Development: https://github.com/Rockhopper-Technologies/ansicon
+
+ansicon loads Jason Hood's ANSICON into the current process, giving the
+Windows console support for ANSI escape sequences. The 32 and 64 bit
+DLLs are bundled, and the module exposes load and unload helpers plus a
+check for whether ANSICON is already active.
 
 Current build status
 ====================
 
 
 <table><tr>
-    <td>GitHub Actions</td>
+    <td>All platforms:</td>
     <td>
       <a href="https://github.com/conda-forge/ansicon-feedstock/actions/workflows/conda-build.yml">
         <img src="https://github.com/conda-forge/ansicon-feedstock/actions/workflows/conda-build.yml/badge.svg?event=push&branch=main">
